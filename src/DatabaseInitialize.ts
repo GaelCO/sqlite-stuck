@@ -1,4 +1,4 @@
-import {SQLTransaction} from 'expo-sqlite';
+import {SQLTransaction} from 'expo-sqlite/legacy';
 import {getDatabase} from './DatabaseManager';
 import {CREATE_TABLE_STUCK, upsertStuck} from "./StuckDao";
 import {storeDbVersion} from "./AsyncStorageHelper";

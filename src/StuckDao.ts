@@ -1,4 +1,4 @@
-import {SQLTransaction} from 'expo-sqlite/src/SQLite.types';
+import {SQLTransaction} from 'expo-sqlite/legacy';
 import {getDatabase} from './DatabaseManager';
 
 const TABLE_NAME = 'Stuck';
@@ -8,7 +8,7 @@ const COL_CODE = 'code';
 const COL_FIRST_FLOAT = 'firstFloat';
 const COL_SECOND_FLOAT = 'secondFloat';
 export const CREATE_TABLE_STUCK =
-  'create table if not exists ' +
+  'CREATE TABLE if NOT EXISTS ' +
   TABLE_NAME +
   ' (' +
   COL_ID +
@@ -32,7 +32,7 @@ export const upsertStuck = (
   secondFloat: number,
 ) => {
   tx.executeSql(
-    'insert or replace into ' +
+    'INSERT OR REPLACE INTO ' +
       TABLE_NAME +
       ' (' +
       COL_ID +
@@ -57,7 +57,7 @@ export const upsertStuck = (
 };
 
 export const getStucks = (limit: number | null, callback: Function) => {
-  let query ='select * from ' + TABLE_NAME + ' order by ' + COL_NAME;
+  let query ='SELECT * FROM ' + TABLE_NAME + ' order by ' + COL_NAME;
   if (limit) {
     query += ' LIMIT ' + limit?.toString();
   }
