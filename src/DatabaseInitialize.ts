@@ -29,7 +29,7 @@ const createInitialDatabase = (tx: SQLTransaction) => {
 
 const initFakeData = (tx: SQLTransaction) => {
   // locations
-  for (let i = 0; i <= 50000; i++) {
+  for (let i = 0; i <= 99999; i++) {
     upsertStuck(tx, i, 'fakeName' + i.toString(), 'fakeCode', 0.121545151515815, -45454.121515112)
   }
 }
